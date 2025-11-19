@@ -14,11 +14,12 @@ working_dir = os.path.dirname(os.path.abspath(__file__))
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('C:/Users/manda/Documents/MHDPS/multiple-disease-prediction-streamlit-app/saved_models/diabetes_model.sav', 'rb'))
+# NEW (relative paths - will work on Streamlit Cloud):
+diabetes_model = pickle.load(open(f'{working_dir}/saved_models/diabetes_model.sav', 'rb'))
 
-heart_disease_model = pickle.load(open('C:/Users/manda/Documents/MHDPS/multiple-disease-prediction-streamlit-app/saved_models/heart_disease_model.sav', 'rb'))
+heart_disease_model = pickle.load(open(f'{working_dir}/saved_models/heart_disease_model.sav', 'rb'))
 
-parkinsons_model = pickle.load(open('C:/Users/manda/Documents/MHDPS/multiple-disease-prediction-streamlit-app/saved_models/parkinsons_model.sav', 'rb'))
+parkinsons_model = pickle.load(open(f'{working_dir}/saved_models/parkinsons_model.sav', 'rb'))
 
 # sidebar for navigation
 with st.sidebar:
@@ -248,3 +249,4 @@ if selected == "Parkinsons Prediction":
             parkinsons_diagnosis = "The person does not have Parkinson's disease"
 
     st.success(parkinsons_diagnosis)
+
